@@ -22,7 +22,6 @@ func TestThemAll() {
 		4: "some-host-4.env.dc",
 	}
 
-	// dt4 := []map[string]Record{
 	dt4 := map[string]Record{
 		"some-host-1.env.dc": {
 			Name: "Some Specs",
