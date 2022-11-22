@@ -22,6 +22,32 @@ func TestThemAll() {
 		{4: "some-host-4.env.dc"},
 	}
 
+	dt4 := []map[string]Record{
+		{"some-host-1.env.dc": Record{
+			Name: "Some Specs",
+			Data: map[string]int{
+				"cpu":  8,
+				"ram":  16,
+				"sdb1": 20,
+				"sdb2": 100,
+			},
+		}},
+		{"some-host-2.env.dc": Record{
+			Name: "Some Specs",
+			Data: map[string]interface{}{
+				"cpu":  8,
+				"ram":  16,
+				"sdb1": 20,
+				"sdb2": 200,
+				"distro": map[string]interface{}{
+					"name":    "ubuntu",
+					"version": "20.04",
+					"lts":     true,
+				},
+			},
+		}},
+	}
+
 	rc1 := Record{
 		Name: "Some Data",
 		Data: dt1,
@@ -37,10 +63,15 @@ func TestThemAll() {
 		Data: dt3,
 	}
 
+	rc4 := Record{
+		Name: "Map Approach",
+		Data: dt4,
+	}
+
 	ap1 := Application{
 		AppName:     "Some Cool Application",
 		Description: "Some Long Long Description",
-		Records:     []Record{rc1, rc2, rc3},
+		Records:     []Record{rc1, rc2, rc3, rc4},
 	}
 
 	in1 := Inventory{
